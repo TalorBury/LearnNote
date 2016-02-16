@@ -1,0 +1,90 @@
+1.Git安装(ls -ah查看所有文件)
+	(1)Linux 使用sudo apt-get install git
+	(2)Mac 安装AppStore中的Xcode即可
+	(3)安装完成之后还需进行最后一步设置：
+		1⃣️git config --global user.name "Your Name"
+		2⃣️git config --global user.email "email@example.com"
+
+2.创建仓库
+	在文件夹中使用命令 git init
+
+3.将文件添加到仓库(把文件修改添加到暂存区)
+	git add readme.txt
+
+4.将文件提交到仓库(-m后面是本次提交的说明)
+	git commit -m "write a readme file"
+
+5.查看仓库当前的状态
+	git status
+
+6.查看文件的修改部分
+	git diff readme.txt
+
+7.查看git历史记录
+	git log (--pretty=oneline)   //--pretty=oneline 显示的是commit id版本号
+
+8.回退到任意版本
+	git reset --hard HEAD~(n)	//HEAD表示当前版本
+	git reset --hard commit id  //输入commit id 前几位即可
+
+9.查看所有git每一次命令
+	git reflog
+
+10.撤销修改
+	git checkout -- readme.txt		//丢弃工作区的修改
+	git reset HEAD readme.txt 		//把暂存的修改回退到工作区
+
+11.删除文件
+	rm test.txt		//删除工作区的文件
+	git rm test.txt	//删除版本库中的文件
+	git commit -m "delete test.txt"
+	git checkout -- test.txt 	//用版本库里的版本替换工作区的版本
+
+12.远程仓库
+	(1)创建SSH Key
+		ssh-keygen -t rsa -C "youremail@example.com"
+		用户主目录中.ssh目录中有私钥id_rsa和公钥id_rsa.pub
+	(2)Add SSH Key 其中Key中填写id_rsa.pub文件中的内容
+	(3)在GitHub中创建Repository
+	(4)建立本地仓库与远程仓库的关联
+		git remote add origin git@github.com:TalorBury/MyFirstRepository.git
+		(git remote rm origin)	//去除本地仓库与远程仓库的关联
+	(5)将本地仓库的内容推送到远程库上
+		git push -u origin master
+	(6)将远程库克隆到本地库
+		git clone git@github.com:TalorBury/bjbskill.git
+
+13.分支管理
+	(1)创建分支
+		git checkout -b dev		//创建并切换分支(相当于git branch dev 加 git checkout dev)
+		git checkout -b dev origin/dev 		//创建远程origin的dev分支到本地
+	(2)查看当前分支
+		git branch
+	(3)合并分支
+		git merge dev		//合并指定分支到当前分支上
+		git merge --no-ff -m "merge with no-ff" dev		//禁用Fast forward使用no-ff合并
+	(4)删除分支
+		git branch -d dev
+		git branch -D dev	//对于没有合并的分支强行删除分支
+	(5)Bug分支
+		git stash		//存储工作现场，从而可以创建分支来修复bug
+		git stash list	//查看stash列表
+		git stash pop	//恢复工作现场并删除stash内容，相当于git stash apply + git stash drop
+	(6)推送分支
+		git push origin dev
+		git branch --set-upstream dev origin/dev	//设置dev和origin/dev的链接
+	(7)拉取
+		git pull	//拉取最新的提交
+		git remote -v 	//查看远程库的信息
+
+14.标签管理
+	(1)创建标签
+		git tag v1.0
+		git tag v1.0 commit id
+	(2)查看标签
+		git tag
+		git show tagname	//查看标签信息
+
+	(3)
+
+			
