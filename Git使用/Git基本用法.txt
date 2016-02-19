@@ -2,8 +2,8 @@
 	(1)Linux 使用sudo apt-get install git
 	(2)Mac 安装AppStore中的Xcode即可
 	(3)安装完成之后还需进行最后一步设置：
-		1⃣️git config --global user.name "Your Name"
-		2⃣️git config --global user.email "email@example.com"
+		️git config --global user.name "Your Name"
+		️git config --global user.email "email@example.com"
 
 2.创建仓库
 	在文件夹中使用命令 git init
@@ -85,6 +85,6 @@
 		git tag
 		git show tagname	//查看标签信息
 
-	(3)
+	
 
 			
